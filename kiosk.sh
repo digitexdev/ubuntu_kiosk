@@ -18,8 +18,8 @@ sudo snap install chromium
 #Disable SIDE BAR
 gnome-extensions disable ubuntu-dock@ubuntu.com
 #Disable top bar
-git clone https://github.com/digitexdev/ubuntu_kiosk.git
-cd ubuntu_kiosk
+#git clone https://github.com/digitexdev/ubuntu_kiosk.git
+#cd ubuntu_kiosk
 mkdir ~/.local/share/gnome-shell/extensions
 mv hidetopbarmathieu.bidon.ca.v100.shell-extension ~/.local/share/gnome-shell/extensions/
 gnome-extensions enable hidetopbar@mathieu.bidon.ca
