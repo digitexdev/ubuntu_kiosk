@@ -56,11 +56,10 @@ sudo sed -i "s/#  AutomaticLogin = user1/AutomaticLogin = $USER/" /etc/gdm3/cust
 #echo "Rebooting to apply changes..."
 #sudo reboot
 #Disable SIDE BAR
-su $USER
-gnome-extensions disable ubuntu-dock@ubuntu.com
-#Disable top bar
-#git clone https://github.com/digitexdev/ubuntu_kiosk.git
-#cd ubuntu_kiosk
-mkdir /home/$USER/.local/share/gnome-shell/extensions
+# Disable SIDE BAR
+sudo -u $USER -H gnome-extensions disable ubuntu-dock@ubuntu.com
+
+# Disable top bar
+mkdir -p /home/$USER/.local/share/gnome-shell/extensions
 mv hidetopbarmathieu.bidon.ca.v100.shell-extension /home/$USER/.local/share/gnome-shell/extensions/
-gnome-extensions enable hidetopbar@mathieu.bidon.ca
+sudo -u $USER -H gnome-extensions enable hidetopbar@mathieu.bidon.ca
