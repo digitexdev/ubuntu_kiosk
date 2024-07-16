@@ -16,6 +16,13 @@ sudo apt update
 sudo apt install -y gnome-shell gnome-session dbus-x11
 sudo snap install chromium
 
+#add digitex logo to spinner theme
+sudo chmod 644 watermark.png
+
+sudo mv /usr/share/plymouth/themes/spinner/watermark.png /usr/share/plymouth/themes/spinner/watermark_original.png
+
+sudo cp watermark.png /usr/share/plymouth/themes/spinner/watermark.png
+
 # Create a systemd user service to start Chromium in kiosk mode
 sudo mkdir -p /home/$USER/.config/systemd/user
 sudo chown -R $USER:$USER /home/$USER/.config/systemd
@@ -54,6 +61,6 @@ gnome-extensions disable ubuntu-dock@ubuntu.com
 #Disable top bar
 #git clone https://github.com/digitexdev/ubuntu_kiosk.git
 #cd ubuntu_kiosk
-mkdir ~/.local/share/gnome-shell/extensions
-mv hidetopbarmathieu.bidon.ca.v100.shell-extension ~/.local/share/gnome-shell/extensions/
+mkdir /home/$USER/.local/share/gnome-shell/extensions
+mv hidetopbarmathieu.bidon.ca.v100.shell-extension /home/$USER/.local/share/gnome-shell/extensions/
 gnome-extensions enable hidetopbar@mathieu.bidon.ca
