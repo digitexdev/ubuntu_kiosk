@@ -60,6 +60,6 @@ sudo sed -i "s/#  AutomaticLogin = user1/AutomaticLogin = $USER/" /etc/gdm3/cust
 sudo -u $USER -H gnome-extensions disable ubuntu-dock@ubuntu.com
 
 # Disable top bar
-mkdir -p /home/$USER/.local/share/gnome-shell/extensions
-mv hidetopbarmathieu.bidon.ca.v100.shell-extension /home/$USER/.local/share/gnome-shell/extensions/
-sudo -u $USER -H gnome-extensions enable hidetopbar@mathieu.bidon.ca
+# mkdir -p /home/$USER/.local/share/gnome-shell/extensions
+# mv hidetopbarmathieu.bidon.ca.v100.shell-extension /home/$USER/.local/share/gnome-shell/extensions/
+# sudo -u $USER -H gnome-extensions enable hidetopbar@mathieu.bidon.ca
