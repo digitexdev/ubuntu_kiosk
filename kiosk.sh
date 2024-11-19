@@ -16,6 +16,9 @@ sudo apt update
 sudo apt install -y gnome-shell gnome-session dbus-x11
 sudo snap install chromium
 
+#added in v2 of script:
+sudo apt install gnome-tweaks gnome-shell-extensions openssh-server
+
 #add digitex logo to spinner theme
 sudo chmod 644 watermark.png
 
@@ -31,7 +34,7 @@ sudo bash -c "cat > /home/$USER/.config/systemd/user/kiosk.service <<EOF
 Description=Kiosk Mode
 
 [Service]
-ExecStart=/snap/bin/chromium --incognito --kiosk --noerrdialogs --disable-infobars --password-store=basic $URL
+ExecStart=/snap/bin/chromium --kiosk --noerrdialogs --disable-infobars --password-store=basic $URL
 Restart=always
 
 [Install]
@@ -58,8 +61,9 @@ sudo sed -i "s/#  AutomaticLogin = user1/AutomaticLogin = $USER/" /etc/gdm3/cust
 #Disable SIDE BAR
 # Disable SIDE BAR
 sudo -u $USER -H gnome-extensions disable ubuntu-dock@ubuntu.com
+sudo -u $USER -H gnome-extensions disable desktop-icons@csoriano 
 
 # Disable top bar
-# mkdir -p /home/$USER/.local/share/gnome-shell/extensions
-# mv hidetopbarmathieu.bidon.ca.v100.shell-extension /home/$USER/.local/share/gnome-shell/extensions/
-# sudo -u $USER -H gnome-extensions enable hidetopbar@mathieu.bidon.ca
+ mkdir -p /home/$USER/.local/share/gnome-shell/extensions
+ mv hidetopbarmathieu.bidon.ca.v100.shell-extension /home/$USER/.local/share/gnome-shell/extensions/hidetopbar@mathieu.bidon.ca
+ sudo -u $USER -H gnome-extensions enable hidetopbar@mathieu.bidon.ca
